@@ -32,17 +32,9 @@ class BinarySearchTree {
 
     function searchTree(node) {
       if (data < node.data) {
-        if (!node.left) {
-          node.left = newNode;
-        } else {
-          searchTree(node.left);
-        }
+        !node.left ? (node.left = newNode) : searchTree(node.left);
       } else if (data > node.data) {
-        if (!node.right) {
-          node.right = newNode;
-        } else {
-          searchTree(node.right);
-        }
+        !node.right ? (node.right = newNode) : searchTree(node.right);
       }
     }
     searchTree(this.rootNode);
@@ -54,11 +46,9 @@ class BinarySearchTree {
       if (data === currentNode.data) {
         return true;
       } else {
-        if (data < currentNode.data) {
-          currentNode = currentNode.left;
-        } else if (data > currentNode.data) {
-          currentNode = currentNode.right;
-        }
+        data < currentNode.data
+          ? (currentNode = currentNode.left)
+          : (currentNode = currentNode.right);
       }
     }
     return false;
@@ -70,11 +60,9 @@ class BinarySearchTree {
       if (data === currentNode.data) {
         return currentNode;
       } else {
-        if (data < currentNode.data) {
-          currentNode = currentNode.left;
-        } else if (data > currentNode.data) {
-          currentNode = currentNode.right;
-        }
+        data < currentNode.data
+          ? (currentNode = currentNode.left)
+          : (currentNode = currentNode.right);
       }
     }
     return null;
